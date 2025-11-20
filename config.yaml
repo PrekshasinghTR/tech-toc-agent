@@ -1,0 +1,53 @@
+# Tech-TOC Agent Configuration
+agent:
+  name: "Tech-TOC Analyzer"
+  version: "1.0.0"
+  
+# Target repository configuration
+target_repo:
+  owner: "tr"
+  name: "tech-toc_live"
+  branch: "main"
+
+# Analysis settings
+analysis:
+  # How often to run automated analysis (in days)
+  schedule_days: 7
+  
+  # Content freshness threshold (in days)
+  stale_content_threshold: 180
+  
+  # File types to analyze
+  content_extensions:
+    - ".md"
+    - ".adoc"
+    - ".html"
+  
+  # Hugo configuration files to monitor
+  hugo_configs:
+    - "config.toml"
+    - "config.yaml"
+    - "config.json"
+
+# Reporting settings
+reports:
+  # Where to create reports (issues, files, or both)
+  output_type: "issues"
+  
+  # Report templates directory
+  templates_dir: "templates"
+  
+  # Labels to apply to generated issues
+  issue_labels:
+    - "tech-toc-analysis"
+    - "automated-report"
+
+# Notification settings
+notifications:
+  # Enable/disable different notification types
+  content_updates: true
+  ownership_changes: true
+  quality_issues: true
+  
+  # Mention owners in notifications
+  mention_owners: true
